@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="login-page">
+    <div class="container d-flex align-items-center">
+      <div class="form-holder has-shadow">
+        <div class="row">
+          <!-- Logo & Information Panel-->
+          <div class="col-lg-6">
+            <div class="info d-flex align-items-center">
+              <div class="content">
+                <div class="logo">
+                  <h1>RAPTR</h1>
+                </div>
+                <p>Document Summarizer</p>
+              </div>
+            </div>
+          </div>
+          <!-- Form Panel    -->
+          <div class="col-lg-6 bg-white">
+            <div class="form d-flex align-items-center">
+              <div class="content">
+                <form method="POST" action ="">
+                    {{ form.hidden_tag() }}
+                    <fieldset class= "form Group">
+                        <legend class = "border-bottom mb-4">Sign Up </legend>
+                        <div class = "form-group-material">
+                            {%if form.username.errors%}
+    
+                                {{form.username(class="form_control form-control-lg is-invalid")}}
+                                <div class ="invalid-feedback">
+                                    {% for error in form.username.errors%}
+                                        <span>{{error}}</span>
+                                    {%endfor%}
+                                    
+                                </div>
+                            {% else %}
+                                {{ form.username(class ="form-control rounded-pill border-0 shadow-sm px-4" , placeholder="Username") }}
+                            {%endif%}              
+                        </div>    
+                        <div class = "form-group-material">
+                        
+                            {%if form.email.errors%}
+                                {{form.email(class="form_control form-control-lg is-invalid")}}
+                                
+                                <div class ="invalid-feedback">
+                                    {% for error in form.email.errors%}
+                                        <span>{{error}}</span>
+                                    {%endfor%}
+                                </div>
+    
+                            {% else %}
+                                {{ form.email(class ="form-control rounded-pill border-0 shadow-sm px-4" , placeholder="Email address") }}
+                            {%endif%}
+                        </div>
+                        <div class="form-group-material">
+                            {%if form.password.errors%}
+
+                                {{form.password(class="form_control form-control-lg is-invalid")}}
+                                <div class ="invalid-feedback">
+                                    {% for error in form.password.errors%}
+                                        <span>{{error}}</span>
+                                    {%endfor%}
+                                </div>
+
+                            {% else %}
+                                {{ form.password(class ="form-control rounded-pill border-0 shadow-sm px-4" , placeholder="Password") }}
+                            {%endif%}
+                        </div>
+                        <div class = "form-group-material">
+                            {%if form.confirm_password.errors%}
+                                {{form.confirm_password(class="form_control form-control-lg is-invalid")}}
+                                <div class ="invalid-feedback">
+                                    {% for error in form.confirm_password.errors%}
+                                        <span>{{error}}</span>
+                                    {%endfor%}
+                                </div>
+                            {% else %}
+                                {{ form.confirm_password(class ="form-control rounded-pill border-0 shadow-sm px-4" , placeholder="Confirm Password") }}
+                            {%endif%}
+                        </div>
+                    </fieldset>
+                    <div class="form-group text-center">
+                        {{form.submit(class ="btn btn-outline-primary",id="register",type="submit")}}
+                    </div>
+                </form>
+                <div class ='border-top pt-3'>
+                    <small class ="text-muted">
+                        already have an account? <a class ="ml 2" href="{{ url_for('login2') }}"> Sign in </a>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+        <p>Design by <a href="https://bootstrapious.com" class="external">jj & sk</a></p>
+        <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+        </div>
+    </div>
+</div>
+{% endblock %} 

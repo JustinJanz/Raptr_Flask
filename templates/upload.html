@@ -1,0 +1,35 @@
+{% extends 'dashboard_layout.html' %}
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.upload.css') }}">
+
+{% endblock head%}
+
+{% block content %}
+
+<section class="no-padding-bottom">
+    <div class="container p-5">
+    <div class="row">
+        <div class="col-lg-5 mx-auto">
+          <div class="p-5 bg-cover shadow rounded-lg"><img src="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" alt="" width="100" class="d-block mx-auto mb-4 rounded-pill">
+    
+            <!-- Default bootstrap file upload-->
+    
+            <h6 class="text-center mb-4 text-muted">
+               Select your file here
+            </h6>
+            <div class="custom-file rounded-pill mb-5 text-md-center">            
+                <form action ="/upload" method="POST" enctype="multipart/form-data">
+                    <input id="customFile" type="file" class="custom-file-input rounded-pill " name ="file" required placeholder="Choose File"/> 
+                    <button type="submit" action="/extract" class="btn btn-outline-info align-items-lg-center"> Upload </button>
+                </form>
+               
+            </div>
+            </div>
+            <!-- End -->
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

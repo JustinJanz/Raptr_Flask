@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{%block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.upload.css') }}">
+{%endblock%}
+
+{% block content %}
+
+<div class="login-page">
+    <div class="container d-flex align-items-center">
+      <div class="form-holder has-shadow ">
+        <div class="row">
+          <!-- Logo & Information Panel-->
+          <div class="col-lg-6">
+            <div class="info d-flex align-items-center">
+              <div class="content">
+                <div class="logo">
+                  <h1>RAPTR</h1>
+                </div>
+                <p>Document Summarizer</p>
+              </div>
+            </div>
+          </div>
+          <!-- Form Panel    -->
+          <div class="col-lg-6">
+            <div class="form d-flex align-items-center">
+              <div class="content ">
+                <form method="POST" class="form-validate mb-4" action=""> 
+                  {{ form.hidden_tag() }}
+                    <div class = "form-group-material">
+                        {%if form.email.errors%}
+                            {{form.email(class="form_control form-control-lg is-invalid")}}
+                            
+                            <div class ="invalid-feedback">
+                                {% for error in form.email.errors%}
+                                    <span>{{error}}</span>
+                                {%endfor%}
+                            </div>
+
+                        {% else %}
+                            {{ form.email(class ="form-control rounded-pill border-0 shadow-sm px-4" , placeholder="Email address") }}
+                        {%endif%}
+                    </div>
+                    <div class="form-group-material">
+                        {%if form.password.errors%}
+
+                            {{form.password(class="form_control form-control-lg is-invalid")}}
+                            <div class ="invalid-feedback">
+                                {% for error in form.password.errors%}
+                                    <span>{{error}}</span>
+                                {%endfor%}
+                            </div>
+
+                        {% else %}
+                            {{ form.password(class ="form-control rounded-pill border-0 shadow-sm px-4" , placeholder="Password") }}
+                        {%endif%}
+                    </div>
+                    <div class="form-group text-center">
+                      {{form.submit(class ="btn btn-outline-primary",id="login",type="submit")}}
+                  </div>
+                </form>
+                <br>
+                <a href="#" class="forgot-pass">Forgot Password?</a><br>
+
+                <div class ='border-top pt-3'>
+                    <small class ="text-muted">
+                        Need an account? <a class ="ml 2" href="{{ url_for('register2') }}"> Sign up </a>
+                    </small>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyrights text-center">
+      <p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin" class="external">jj & sk</p>
+      <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+    </div>
+</div>
+
+  <!-- JavaScript files-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/popper.js/umd/popper.min.js"> </script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+  <script src="js/front.js"></script>
+
+{% endblock %} 

@@ -1,0 +1,83 @@
+{% extends 'dashboard_layout.html' %}
+{% block content %}
+
+<section class="no-padding-top no-padding-bottom">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-8">
+        <div class="statistic-block block">
+          <div class="progress-details d-flex align-items-end justify-content-between">
+            <div class="title">
+              <div class="icon"><i class="icon-user-1"></i></div><strong>New Documents</strong>
+            </div>
+            <div class="number dashtext-1">8</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-8">
+        <div class="statistic-block block">
+          <div class="progress-details d-flex align-items-end justify-content-between">
+            <div class="title">
+              <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>All Documents uploaded</strong>
+            </div>
+            <div class="number dashtext-4">8</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-8">
+        <div class="statistic-block block">
+          <div class="progress-details d-flex align-items-end justify-content-between">
+            <div class="title">
+              <div class="icon"><i class="icon-contract"></i></div><strong>Generated Summaries</strong>
+            </div>
+            <div class="number dashtext-2">7</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>  
+  <div class="col-lg-12 align">
+    <div class="block">
+      <div class="title text-lg-center">
+        <strong class="d-block">URL Summary </strong><span class="d-block"> Summarize a URL (eg:Wikipedia) </span>
+      </div>
+      <div class="block-body">
+        <form method="POST" action="/url_summary" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+          <div class="form-group bg-gray-dark">
+            {{ form.url(class ="form-control rounded-pill border-2 border-info shadow-sm px-4 " , placeholder="Enter your url", required="true") }}
+          </div>
+          <div class="form-group text-center ">       
+            {{form.submit(class ="btn btn-outline-info")}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section> 
+
+<section class="section section-solutions-about grey darken-2">
+  <div class="col-lg-12 align">
+    <div class="block">
+      <div class="title text-lg-center">
+        <strong class="d-block">URL Summary </strong><span class="d-block"> Summary of the URL </span>
+      </div>
+      <div class="block-body">
+        <div class="container white-text">
+          <div class="col s12 m6 grey darken-3">
+            <div class="icon-block">
+            <p class="light">{{ final_summary }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

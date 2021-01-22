@@ -1,0 +1,18 @@
+{% extends 'dashboard_layout.html' %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <h2 class="article-title text-info"> {{ post.title }}</a></h2>
+        <small class="text-muted text-info">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+        <br>
+        <h5 class="mr-2 text-info" href="#" >Summary</h5>
+
+      </div>
+
+      <p class="article-content">{{ post.summary }}</p>
+    </div>
+
+  </article>
+
+{% endblock %}
